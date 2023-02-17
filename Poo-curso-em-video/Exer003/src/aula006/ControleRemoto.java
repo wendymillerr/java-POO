@@ -100,7 +100,7 @@ public class ControleRemoto implements Controlador{
   
     public void play() {
         if(this.isLigado() && !this.isTocando()){
-            System.out.println("Play");
+            System.out.println("play sucess");
         }
     }
 }
