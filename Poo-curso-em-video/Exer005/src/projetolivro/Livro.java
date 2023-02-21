@@ -1,6 +1,8 @@
+package projetolivro;
 
+import java.util.Random;
 
-public class Livro {
+public class Livro  implements Publicacao{
     private String titulo;
     private String autor;
     private int totPaginas;
@@ -10,14 +12,10 @@ public class Livro {
 
     
 
-    
-
     public String detalhes() {
         return "Livro [titulo=" + titulo + ", autor=" + autor + ", totPaginas=" + totPaginas + ", pagAtual=" + pagAtual
-                + ", aberto=" + aberto + ", leitor=" + leitor + "]";
+                + ", aberto=" + aberto + ", leitor=" + leitor.getNome() + ", idade= " + leitor.getIdade() + ", sexo=" + leitor.getSexo() + "]";
     }
-
-
 
     public Livro(String titulo, String autor, int totPaginas, int pagAtual, Pessoa leitor) {
         this.titulo = titulo;
@@ -77,7 +75,38 @@ public class Livro {
         this.leitor = leitor;
     }
 
-   
 
-    
+    public void abrir() {
+        this.aberto = true;
+    }
+
+
+    public void avancarPag() {
+        if(getPagAtual() <= getTotPaginas()){
+            this.setPagAtual(getPagAtual() + 1);
+        }
+    }
+
+
+    public void fechar() {
+        this.aberto = false;
+        
+    }
+
+
+    public void folhear() {
+        Random aleatorio = new Random();
+        int pagAleatoria = aleatorio.nextInt(getTotPaginas());
+        this.setPagAtual(pagAleatoria);
+    }
+
+
+    public void voltarPag() {
+        if(getPagAtual() >= 0){
+            this.setPagAtual(getPagAtual() - 1);
+
+        }
+    }
+
+   
 }
