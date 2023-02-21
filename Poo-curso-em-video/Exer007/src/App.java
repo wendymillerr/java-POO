@@ -8,6 +8,7 @@ public class App {
 
         peixe.alimentar();
         lagarto.alimentar();
+        cachorro.emitirSom();
 
     }
 }
