@@ -1,4 +1,4 @@
-package animal;
+package tiposdeanimal.animal;
 abstract class Animal{
     //Atributes
     protected float peso;

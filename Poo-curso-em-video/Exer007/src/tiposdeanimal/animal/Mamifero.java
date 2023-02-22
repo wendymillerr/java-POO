@@ -1,7 +1,7 @@
-package animal;
+package tiposdeanimal.animal;
 
 public class Mamifero extends Animal {
-    
+
     private String corPelo;
 
 

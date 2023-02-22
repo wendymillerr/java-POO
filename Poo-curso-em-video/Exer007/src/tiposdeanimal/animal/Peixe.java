@@ -1,4 +1,4 @@
-package animal;
+package tiposdeanimal.animal;
 
 public class Peixe extends Animal {
     private String corEscama;

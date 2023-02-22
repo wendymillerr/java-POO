@@ -1,4 +1,4 @@
-package animal;
+package tiposdeanimal.animal;
 
 public class Reptil extends Animal{
     private String corEscama;
