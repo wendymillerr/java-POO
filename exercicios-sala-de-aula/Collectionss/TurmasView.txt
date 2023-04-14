@@ -1,0 +1,42 @@
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+public class TurmasView {
+    public static void main(String[] args) {
+        DecimalFormat df = new DecimalFormat("#.##");
+        
+        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+        Aluno aluno1 = new Aluno();
+        Aluno aluno2 = new Aluno();
+        Aluno aluno3 = new Aluno();
+        
+
+        //adicionando objetos Aluno no array de alunos
+        alunos.add(aluno1);
+        alunos.add(aluno2);
+        alunos.add(aluno3);
+
+        //notas parte 1 e parte 2 da primeira prova e da segunda prova
+        aluno1.adicionarNota(3.0, 3.5);
+        aluno1.adicionarNota(4.0, 4.0);
+
+        aluno2.adicionarNota(5.5, 4.0);
+        aluno2.adicionarNota(3.0, 0.0);
+
+        aluno3.adicionarNota(2.0, 4.5);
+        aluno3.adicionarNota(5.0, 4.0);
+
+        //apresentar alunos e suas respectivas médias
+        for(int i = 0; i < alunos.size() ; i++){
+            System.out.println("A média do aluno " + (i + 1) + " é: " + df.format(alunos.get(i).calcularMedia()));
+        }
+
+        //instância de uma turma
+        Turma turma = new Turma(alunos);
+        
+        //apresenta a média da turma
+        System.out.println("A média da turma é: " + df.format(turma.calcularMedia()));
+
+
+    }
+}

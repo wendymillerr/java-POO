@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class Aluno {
+    private ArrayList<Prova>provas;
+
+    public Aluno(){
+        this.provas = new ArrayList<Prova>();
+    }
+
+    public void adicionarNota(double parte1, double parte2){
+        Prova prova = new Prova(parte1, parte2);
+        provas.add(prova);
+    }
+
+    public double calcularMedia(){
+        double somaNotas = 0;
+        for(Prova prova: provas){
+            somaNotas += prova.calcularNotaTotal();
+        }
+        return somaNotas / this.provas.size();
+    }
+
+}
