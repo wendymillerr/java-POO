@@ -1,6 +1,14 @@
-import java.util.Date;
-import java.text.SimpleDateFormat;
+package visao;
+
+
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import dao.ProfessorDao;
+import modelo.ProfessorHorista;
+import modelo.ProfessorIntegral;
+
 
 public class EscolaView {
     public static void main(String[] args) throws ParseException  {

@@ -1,3 +1,5 @@
+package modelo;
+
 public class ProfessorHorista extends Professor{
     
     private int horasTrabalhadas;
