@@ -1,3 +1,6 @@
+
+
+-------------------------------------------------------------------------------------------
 public void listarVeiculos(){
 /*
 import java.util.ArrayList;
@@ -50,7 +53,7 @@ private ArrayList<Veiculo>veiculos;
     data = formato.parse("16-06-1995");
 	an1.setDataNascimento(data);
 
-
+-----------------------------------------------------------------------------------------------------------------
 
 
     public int getIdade(){
@@ -66,7 +69,7 @@ private ArrayList<Veiculo>veiculos;
         return idade;
     }
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------
 
     public void listarIdade(){
 
