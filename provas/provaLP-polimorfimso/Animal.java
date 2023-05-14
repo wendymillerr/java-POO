@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Calendar;
 
 
 public class Animal {
@@ -57,7 +58,26 @@ public class Animal {
         this.alimento = alimento;
     }
 
+    public int getIdade(){
+        int idade = 0;
+        Calendar hoje = Calendar.getInstance();
+        int anoPresente = hoje.get(Calendar.YEAR);
 
+        Calendar nascimento = Calendar.getInstance();
+        nascimento.setTime(this.dataNascimento);
+        int anoNascimento = nascimento.get(Calendar.YEAR);
+
+        idade = anoPresente - anoNascimento;
+        return idade;
+    }
+
+    @Override
+    public String toString() {
+        return "nome=" + nome + ", dataNascimento=" + dataNascimento + ", peso=" + peso + ", alimentado="
+                + alimentado + ", alimento=" + alimento;
+    }
+
+    
     
 
 }

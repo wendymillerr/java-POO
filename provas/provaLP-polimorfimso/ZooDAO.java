@@ -2,8 +2,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.text.Utilities;
+
+import java.util.Calendar;
+import java.util.Comparator;
+
 public class ZooDAO {
     private ArrayList<Animal>animais;
+    private Date dataNascimento;
     
     public ZooDAO(){
         animais = new ArrayList<Animal>();
@@ -44,6 +50,7 @@ public class ZooDAO {
         System.out.println("A lista de animais enjaulados é: ");
         for (Animal animal : animais) {
             animal.print();
+            System.out.println();
         }
     }
 
@@ -93,7 +100,74 @@ public class ZooDAO {
     }
 
     
+    public void listarConsultas(){
+        System.out.println("Animais que precisam de consulta");
+        System.out.println();
+        for (Animal animal : animais) {
+            if(animal instanceof Tigre){
+                
+                if(animal.getIdade() % 3 == 0){
+                    System.out.println(animal.toString());
+                    System.out.println();
+                }
+            }
+            else if(animal instanceof Elefante){
+                if(animal.getIdade() % 7 == 0){
+                    System.out.println(animal.toString());
+                    System.out.println();
+                }
+            }else{
+                if(animal.getIdade() % 5 == 0){
+                    System.out.println(animal.toString());
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+
+    public void listarIdade(){
+
+        ArrayList<Tigre>tigres = new ArrayList<Tigre>();
+        ArrayList<Elefante>elefantes = new ArrayList<Elefante>();
+        ArrayList<Girafa>girafas = new ArrayList<Girafa>();
 
 
+        for (Animal animal : animais) {
+            if(animal instanceof Tigre){
+                tigres.add((Tigre)animal);
+            }
+            else if(animal instanceof Elefante){
+                elefantes.add((Elefante)animal);
+            }else{
+                girafas.add((Girafa)animal);
+            }
+        }
+
+        int ultimo = elefantes.size() - 1;
+        elefantes.sort(Comparator.comparing(Animal::getIdade));
+        System.out.println("Elefante mais jovem: " + elefantes.get(0).getNome() + " " + elefantes.get(0).getIdade());
+        System.out.println("Elefante mais velho: " + elefantes.get(ultimo).getNome() + " " + elefantes.get(ultimo).getIdade());
+        System.out.println();
+
+        ultimo = girafas.size() - 1;
+        girafas.sort(Comparator.comparing(Animal::getIdade));
+        System.out.println("Girafa mais jovem: " + girafas.get(0).getNome() + " " + girafas.get(0).getIdade());
+        System.out.println("Girafa mais velha: " + girafas.get(ultimo).getNome() + " " + girafas.get(ultimo).getIdade());
+
+        ultimo = tigres.size() - 1;
+        tigres.sort(Comparator.comparing(Animal::getIdade));
+        System.out.println("Tigre mais jovem: " + tigres.get(0).getNome() + " " + tigres.get(0).getIdade());
+        System.out.println("Tigre mais velho: " + tigres.get(ultimo).getNome() + " " + tigres.get(ultimo).getIdade());
+
+
+    }
+
+    public void iniciarZoo(){
+        listarConsultas();
+        animaisJaula();
+        alimentoHerb();
+        listarIdade();
+    }
 
 }

@@ -60,6 +60,18 @@ public class ZoologicoView  {
     elefante2.setNome("titi");
     elefante2.setPeso(1000);
     elefante2.setTamanhoTromba(120);
+
+    zooDAO.addAnimal(elefante2);
+    zooDAO.addAnimal(elefante1);
+    zooDAO.addAnimal(girafa1);
+    zooDAO.addAnimal(girafa2);
+    zooDAO.addAnimal(tigre1);
+    zooDAO.addAnimal(tigre2);
+    zooDAO.iniciarZoo();
+
+
+
+
     }
     
 

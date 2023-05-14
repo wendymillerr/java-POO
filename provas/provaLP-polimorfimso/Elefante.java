@@ -31,4 +31,12 @@ public class Elefante extends Animal{
         super.print();
         System.out.println("Tamanho tromba: " + tamanhoTromba);
     }
+
+    @Override
+    public String toString() {
+        System.out.println("Elefante: ");
+        return super.toString();
+    }
+
+    
 }

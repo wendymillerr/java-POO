@@ -1,10 +1,17 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class Estoque {
     private ArrayList<Veiculo>veiculos;
+    private HashMap<String, Integer> marcas;
 
     public Estoque(){
         veiculos = new ArrayList<Veiculo>();
+        marcas = new HashMap<String, Integer>();
+
     }
 
     public void addVeiculo(Veiculo veiculo){
@@ -13,14 +20,25 @@ public class Estoque {
 
     public void listarVeiculos(){
 
-        int marca;
+       
         System.out.println("Listando veiculos...");
 
         for(Veiculo veiculo : veiculos){
             veiculo.imprimirVeiculo();
             System.out.println(" ");
            
+
+            if(veiculo instanceof Carro){
+                if(marcas.containsKey(veiculo.getMarca())){
+                    marcas.put(veiculo.getMarca(), marcas.get(veiculo.getMarca())+1);
+                }else{
+                    marcas.put(veiculo.getMarca(), 1 );
+                }
+            }
         }
+            System.out.println("Marca com maior número de carros:");
+            System.out.println(Collections.max(marcas.entrySet(), 
+            Map.Entry.comparingByValue()).getKey());	        
 
     }
 
