@@ -53,7 +53,7 @@ private ArrayList<Veiculo>veiculos;
     data = formato.parse("16-06-1995");
 	an1.setDataNascimento(data);
 
------------------------------------------------------------------------------------------------------------------
+/*-----------------------------------------------IDADE---------------------------------------*/
 
 
     public int getIdade(){
@@ -69,7 +69,24 @@ private ArrayList<Veiculo>veiculos;
         return idade;
     }
 
------------------------------------------------------------------------------------------------------------------------------------------
+
+/*------------------------------------------------tO STRING--------------------------------------- */
+
+public String toString() {
+    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    String dataNascimentoStr = format.format(dataNascimento);
+    return "nome= " + nome + "\ndataNascimento= " + dataNascimentoStr;
+}
+
+public String toString() {
+    String pessoaStr = super.toString();
+    
+    return pessoaStr + "\npeso=" + peso + "\naltura=" + altura + "\n";
+}
+
+
+
+---------------------------------------------------------ORDENAR--------------------------------------------------------------------------------
 
     public void listarIdade(){
 
@@ -108,4 +125,11 @@ private ArrayList<Veiculo>veiculos;
 
     }
 
-/*-------------------------------------------------------------------------------------- */
+/*-------------------------------------ORDENAR POR MAIS DE UM CRITERIO:------------------------------------------------- */
+
+elefantes.sort(
+    Comparator.comparing(Animal::getIdade)
+              .thenComparing(Animal::getNome)
+              .thenComparing(Animal::getPeso)
+);
+
